@@ -1,0 +1,17 @@
+{
+  "name": "pdf-bug",
+  "version": "1.0.0",
+  "description": "A quick repo to showcase a font embedding bug.",
+  "main": "index.mjs",
+  "repository": "https://github.com/mbiegert/pdf-bug",
+  "author": "@mbiegert",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node ./index.mjs"
+  },
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.0.0",
+    "pdf-lib": "^1.11.2"
+  }
+}
