@@ -8,12 +8,20 @@ const fontBytes = await fs.readFile("./FuturaPTBook.otf");
 const pdfDoc = await PDFDocument.create();
 pdfDoc.registerFontkit(fontkit);
 
-const testFont = await pdfDoc.embedFont(fontBytes, { subset: true });
-//const testFont = await pdfDoc.embedFont(StandardFonts.TimesRoman, { subset: true });
+const fontSubset = await pdfDoc.embedFont(fontBytes, { subset: true });
+//const fontSubset = await pdfDoc.embedFont(StandardFonts.TimesRoman, { subset: true });
+
+const fontNormal = await pdfDoc.embedFont(fontBytes);
 
 const page = pdfDoc.addPage();
 page.drawText("someText", {
-  font: testFont,
+  font: fontSubset,
+});
+
+page.drawText("someText in a non subset embedded font", {
+  x: 100,
+  y: 100,
+  font: fontNormal,
 });
 
 
